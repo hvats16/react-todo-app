@@ -4,33 +4,32 @@ import App from "./App";
 import "./styles/app.scss";
 import { createContext } from "react";
 
-export const server = "https://nodejs-todoapp-85c3.onrender.com/api/v1";
+export const server = "https://task-app-authentication.onrender.com/api/v1";
 
 export const Context = createContext({ isAuthenticated: false });
 
 const AppWrapper = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [user, setUser] = useState({});
+	const [isAuthenticated, setIsAuthenticated] = useState(false);
+	const [loading, setLoading] = useState(false);
+	const [user, setUser] = useState({});
 
-  return (
-    <Context.Provider
-      value={{
-        isAuthenticated,
-        setIsAuthenticated,
-        loading,
-        setLoading,
-        user,
-        setUser,
-      }}
-    >
-      <App />
-    </Context.Provider>
-  );
+	return (
+		<Context.Provider
+			value={{
+				isAuthenticated,
+				setIsAuthenticated,
+				loading,
+				setLoading,
+				user,
+				setUser,
+			}}>
+			<App />
+		</Context.Provider>
+	);
 };
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <AppWrapper />
-  </React.StrictMode>
+	<React.StrictMode>
+		<AppWrapper />
+	</React.StrictMode>
 );
